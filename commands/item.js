@@ -223,10 +223,6 @@ module.exports = {
     .then(response => response.json())
     .then(data => {
 
-      console.log(data);
-
-      console.log(Utils.round(0.5056, 2));
-
       let traits = (data.item.level == 0 || data.item.level == 999) ? `` : `${data.item.level})`;
       traits += (data.item.rarity == 'COMMON') ? `` : ` [${Utils.capitalizeWords(data.item.rarity)}]`;
       traits += (data.item.size == 'MEDIUM') ? `` : ` [${Utils.capitalizeWords(data.item.size)}]`;
@@ -423,8 +419,6 @@ module.exports = {
       interaction.reply({ embeds: [embed], components: components, ephemeral: true });
       
     }).catch((error) => {
-
-      console.error(error);
       
       interaction.reply({ content: `:warning: Failed to fetch item with name "${name}" :warning:`, ephemeral: true });
 

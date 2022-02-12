@@ -27,8 +27,6 @@ module.exports = {
     .then(response => response.json())
     .then(data => {
 
-      console.log(data);
-
       let name = `${data.trait.name}`;
 
       let result = TextProcessing.process(data.trait.description);
@@ -89,8 +87,6 @@ module.exports = {
       interaction.reply({ embeds: [embed], components: components, ephemeral: true });
       
     }).catch((error) => {
-
-      console.error(error); // \U000026A0
       
       interaction.reply({ content: `:warning: Failed to fetch trait with name "${name}" :warning:`, ephemeral: true });
 

@@ -27,8 +27,6 @@ module.exports = {
     .then(response => response.json())
     .then(data => {
 
-      console.log(data);
-
       let traits = (data.feat.level > 0) ? `${data.feat.level})` : ``;
       traits += (data.feat.rarity == 'COMMON') ? `` : ` [${Utils.capitalizeWords(data.feat.rarity)}]`;
       for(const trait of data.traits){
@@ -143,8 +141,6 @@ module.exports = {
       interaction.reply({ embeds: [embed], components: components, ephemeral: true });
       
     }).catch((error) => {
-
-      console.error(error);
       
       interaction.reply({ content: `:warning: Failed to fetch action / feat with name "${name}" :warning:`, ephemeral: true });
 
