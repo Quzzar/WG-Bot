@@ -291,6 +291,8 @@ module.exports = {
       interaction.reply({ embeds: [embed], components: components, ephemeral: true });
       
     }).catch((error) => {
+
+      console.error(error);
       
       interaction.reply({ content: `:warning: Failed to fetch spell with name "${name}" :warning:`, ephemeral: true });
 
