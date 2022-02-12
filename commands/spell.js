@@ -55,8 +55,6 @@ module.exports = {
     .then(response => response.json())
     .then(data => {
 
-      console.log(data);
-
       let isFocus = (data.spell.isFocusSpell) ? `Focus ` : ``;
       let traits = (data.spell.level > 0) ? `${isFocus}${data.spell.level})` : `${isFocus}Cantrip)`;
       traits += (data.spell.rarity == 'COMMON') ? `` : ` [${Utils.capitalizeWords(data.spell.rarity)}]`;
@@ -277,6 +275,12 @@ module.exports = {
       }
       if(footerText != ''){
         description += '\n\n'+footerText;
+      }
+
+      // Limit to only first 4000 characters (nearing message limit size)
+      if(description.length > 4000){
+        description = description.substring(0,4000);
+        description += '...\n\n_Reached max message length. To get full description, visit the link._';
       }
 
       const embed = new MessageEmbed()

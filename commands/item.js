@@ -402,6 +402,12 @@ module.exports = {
       }
       description += result.text;
 
+      // Limit to only first 4000 characters (nearing message limit size)
+      if(description.length > 4000){
+        description = description.substring(0,4000);
+        description += '...\n\n_Reached max message length. To get full description, visit the link._';
+      }
+
       const embed = new MessageEmbed()
           .setColor('#209CEE')
           .setTitle(name)
