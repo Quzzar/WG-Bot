@@ -38,12 +38,12 @@ function getHeightenedTextFromCodeName(codeName){
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('spell')
-    .setDescription('Gives a description and link to a spell.').addStringOption(option =>
+    .setDescription('Privately displays a description and link to a spell.').addStringOption(option =>
       option.setName('name')
         .setDescription('The name of the spell.')
         .setRequired(true)),
 
-  async execute(interaction, name) {
+  async execute(interaction, name, ephemeral=true) {
 
     await fetch(apiUrl+'spell?name='+encodeURIComponent(name), {
       method: 'GET',
@@ -294,13 +294,13 @@ module.exports = {
       if(selectOptions.length > 0){
         components = [row];
       }
-      interaction.reply({ embeds: [embed], components: components, ephemeral: true });
+      interaction.reply({ embeds: [embed], components: components, ephemeral: ephemeral });
       
     }).catch((error) => {
 
       console.error(error);
       
-      interaction.reply({ content: `:warning: Failed to fetch spell with name "${name}" :warning:`, ephemeral: true });
+      interaction.reply({ content: `:warning: Failed to fetch spell with name "${name}" :warning:`, ephemeral: ephemeral });
 
     });
     

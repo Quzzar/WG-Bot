@@ -13,19 +13,34 @@ module.exports = {
       .setTitle('Help Command')
       .setDescription(`
         **/action** <name>
-        _Gives a description and link to an action._
+        _Privately displays a description and link to an action._
+
+        **/action-show** <name>
+        _Publicly displays a description and link to an action._
 
         **/feat** <name>
-        _Gives a description and link to a feat._
+        _Privately displays a description and link to a feat._
+
+        **/feat-show** <name>
+        _Publicly displays a description and link to a feat._
 
         **/item** <name>
-        _Gives a description and link to an item._
+        _Privately displays a description and link to an item._
+
+        **/item-show** <name>
+        _Publicly displays a description and link to an item._
 
         **/spell** <name>
-        _Gives a description and link to a spell._
+        _Privately displays a description and link to a spell._
+
+        **/spell-show** <name>
+        _Publicly displays a description and link to a spell._
 
         **/trait** <name>
-        _Gives a description for a trait._
+        _Privately displays a description for a trait._
+
+        **/trait-show** <name>
+        _Publicly displays a description for a trait._
       `);
 
     interaction.reply({ embeds: [embed], ephemeral: true });

@@ -206,12 +206,12 @@ function numberWithCommas(x) {
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('item')
-    .setDescription('Gives a description and link to an item.').addStringOption(option =>
+    .setDescription('Privately displays a description and link to an item.').addStringOption(option =>
       option.setName('name')
         .setDescription('The name of the item.')
         .setRequired(true)),
 
-  async execute(interaction, name) {
+  async execute(interaction, name, ephemeral=true) {
 
     await fetch(apiUrl+'item?name='+encodeURIComponent(name), {
       method: 'GET',
@@ -422,13 +422,13 @@ module.exports = {
       if(selectOptions.length > 0){
         components = [row];
       }
-      interaction.reply({ embeds: [embed], components: components, ephemeral: true });
+      interaction.reply({ embeds: [embed], components: components, ephemeral: ephemeral });
       
     }).catch((error) => {
 
       console.error(error);
       
-      interaction.reply({ content: `:warning: Failed to fetch item with name "${name}" :warning:`, ephemeral: true });
+      interaction.reply({ content: `:warning: Failed to fetch item with name "${name}" :warning:`, ephemeral: ephemeral });
 
     });
     

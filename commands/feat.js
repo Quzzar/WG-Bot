@@ -10,12 +10,12 @@ const TextProcessing = require('./../text-processing.js');
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('feat')
-    .setDescription('Gives a description and link to a feat.').addStringOption(option =>
+    .setDescription('Privately displays a description and link to a feat.').addStringOption(option =>
       option.setName('name')
         .setDescription('The name of the feat.')
         .setRequired(true)),
 
-  async execute(interaction, name) {
+  async execute(interaction, name, ephemeral=true) {
 
     await fetch(apiUrl+'feat?name='+encodeURIComponent(name), {
       method: 'GET',
@@ -144,13 +144,13 @@ module.exports = {
       if(selectOptions.length > 0){
         components = [row];
       }
-      interaction.reply({ embeds: [embed], components: components, ephemeral: true });
+      interaction.reply({ embeds: [embed], components: components, ephemeral: ephemeral });
       
     }).catch((error) => {
 
       console.error(error);
       
-      interaction.reply({ content: `:warning: Failed to fetch action / feat with name "${name}" :warning:`, ephemeral: true });
+      interaction.reply({ content: `:warning: Failed to fetch action / feat with name "${name}" :warning:`, ephemeral: ephemeral });
 
     });
     
