@@ -36,14 +36,14 @@ function getHeightenedTextFromCodeName(codeName){
 }
 
 module.exports = {
-	data: new SlashCommandBuilder()
-		.setName('spell')
-		.setDescription('Gives a description and link to a spell.').addStringOption(option =>
+  data: new SlashCommandBuilder()
+    .setName('spell')
+    .setDescription('Gives a description and link to a spell.').addStringOption(option =>
       option.setName('name')
         .setDescription('The name of the spell.')
         .setRequired(true)),
 
-	async execute(interaction, name) {
+  async execute(interaction, name) {
 
     await fetch(apiUrl+'spell?name='+encodeURIComponent(name), {
       method: 'GET',
@@ -304,5 +304,5 @@ module.exports = {
 
     });
     
-	},
+  },
 };

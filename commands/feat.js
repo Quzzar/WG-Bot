@@ -8,14 +8,14 @@ const Utils = require('./../utils.js');
 const TextProcessing = require('./../text-processing.js');
 
 module.exports = {
-	data: new SlashCommandBuilder()
-		.setName('feat')
-		.setDescription('Gives a description and link to a feat.').addStringOption(option =>
+  data: new SlashCommandBuilder()
+    .setName('feat')
+    .setDescription('Gives a description and link to a feat.').addStringOption(option =>
       option.setName('name')
         .setDescription('The name of the feat.')
         .setRequired(true)),
 
-	async execute(interaction, name) {
+  async execute(interaction, name) {
 
     await fetch(apiUrl+'feat?name='+encodeURIComponent(name), {
       method: 'GET',
@@ -154,5 +154,5 @@ module.exports = {
 
     });
     
-	},
+  },
 };

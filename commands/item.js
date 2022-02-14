@@ -204,14 +204,14 @@ function numberWithCommas(x) {
 }
 
 module.exports = {
-	data: new SlashCommandBuilder()
-		.setName('item')
-		.setDescription('Gives a description and link to an item.').addStringOption(option =>
+  data: new SlashCommandBuilder()
+    .setName('item')
+    .setDescription('Gives a description and link to an item.').addStringOption(option =>
       option.setName('name')
         .setDescription('The name of the item.')
         .setRequired(true)),
 
-	async execute(interaction, name) {
+  async execute(interaction, name) {
 
     await fetch(apiUrl+'item?name='+encodeURIComponent(name), {
       method: 'GET',
@@ -432,5 +432,5 @@ module.exports = {
 
     });
     
-	},
+  },
 };

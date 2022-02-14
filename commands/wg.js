@@ -2,11 +2,11 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageActionRow, MessageButton, MessageEmbed, MessageSelectMenu } = require('discord.js');
 
 module.exports = {
-	data: new SlashCommandBuilder()
-		.setName('wg')
-		.setDescription('Help command for Wanderer\'s Guide bot.'),
+  data: new SlashCommandBuilder()
+    .setName('wg')
+    .setDescription('Help command for Wanderer\'s Guide bot.'),
 
-	async execute(interaction) {
+  async execute(interaction) {
 
     const embed = new MessageEmbed()
       .setColor('#209CEE')
@@ -30,5 +30,5 @@ module.exports = {
 
     interaction.reply({ embeds: [embed], ephemeral: true });
     
-	},
+  },
 };
