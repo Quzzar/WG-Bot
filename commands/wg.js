@@ -12,35 +12,17 @@ module.exports = {
       .setColor('#209CEE')
       .setTitle('Help Command')
       .setDescription(`
-        **/action** <name>
-        _Privately displays a description and link to an action._
+        **/{action | feat | item | spell | trait} <name>**
+        _Privately displays a description and link to the given content._
 
-        **/action-show** <name>
-        _Publicly displays a description and link to an action._
+        **/{action | feat | item | spell | trait}-show <name>**
+        _Publicly displays a description and link to the given content._
+        
+        **/critical-hit <source>**
+        _Displays a random effect from the Critical Hit deck._
 
-        **/feat** <name>
-        _Privately displays a description and link to a feat._
-
-        **/feat-show** <name>
-        _Publicly displays a description and link to a feat._
-
-        **/item** <name>
-        _Privately displays a description and link to an item._
-
-        **/item-show** <name>
-        _Publicly displays a description and link to an item._
-
-        **/spell** <name>
-        _Privately displays a description and link to a spell._
-
-        **/spell-show** <name>
-        _Publicly displays a description and link to a spell._
-
-        **/trait** <name>
-        _Privately displays a description for a trait._
-
-        **/trait-show** <name>
-        _Publicly displays a description for a trait._
+        **/critical-fumble <source>**
+        _Displays a random effect from the Critical Fumble deck._
       `);
 
     interaction.reply({ embeds: [embed], ephemeral: true });
