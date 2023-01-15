@@ -23,6 +23,9 @@ module.exports = {
 
         **/critical-fumble <source>**
         _Displays a random effect from the Critical Fumble deck._
+
+        **/hero-point**
+        _Displays a random card from the Hero Point deck._
       `);
 
     interaction.reply({ embeds: [embed], ephemeral: true });
