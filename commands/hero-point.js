@@ -274,7 +274,7 @@ module.exports = {
     let effect = effectsArray[Math.floor(Math.random()*effectsArray.length)];
 
     let description = effect.trigger;
-    description += `~~------------------------------------------~~\n`;
+    description += `\n~~------------------------------------------~~\n`;
     description += effect.text;
 
     const embed = new MessageEmbed()
